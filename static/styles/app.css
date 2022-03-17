@@ -1,0 +1,114 @@
+*{
+	font-family: 'Open Sans', sans-serif;
+}
+
+table{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+tr{
+	border-top: 1px solid black;
+	padding: 1.2em;
+}
+
+td, th{
+	text-align: center;
+	margin: 0;
+	padding: 0.5em 2em;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+}
+
+td:last-child, th:last-child{
+	border-right: 0;
+}
+
+input{
+	display: block;
+	width: 98%;
+	padding: 0.5em;
+	margin: 1em 0;
+}
+
+button{
+	background-color: #333;
+	color: white;
+	padding: 0.5em;
+	border-radius: 5px;
+	border: 1px solid #333;
+	transition: background-color 0.1s, color 0.1s, border 0.1s;
+	text-decoration: none;
+	display: inline;
+	margin-bottom: 1em;
+}
+
+button:hover{
+	background-color: white;
+	color: #333;
+}
+
+.buttons{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 8em;
+	border-top: 0;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+.buttons a{
+	background-color: #333;
+	color: white;
+	padding: 0.5em;
+	border-radius: 5px;
+	border: 1px solid #333;
+	transition: background-color 0.1s, color 0.1s, border 0.1s;
+	text-decoration: none;
+	display: inline;
+	margin: 0 5px;
+	font-size: 0.8em;
+}
+
+.buttons a:hover{
+	background-color: white;
+	color: #333;
+}
+
+#emptyAlert{
+	display: block;
+	padding: 0.5em 0.5em;
+	width: 97%;
+	background-color: #777;
+	border: 1px solid black;
+	color: black;
+	font-weight: 500;
+	padding-left: 1em;
+}
+
+.container{
+	display: flex;
+	flex-direction: row;
+}
+
+.container h1{
+	display: inline;
+}
+
+#search{
+	float: right;
+	display: flex;
+	flex-direction: row;
+	align-self: flex-end;
+	margin-left: auto;
+	align-items: flex-end;
+}
+
+#search input, #search button{
+	height: 70%;
+	margin-left: 10px;
+}

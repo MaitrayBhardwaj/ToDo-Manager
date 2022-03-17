@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Search ToDo</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/app.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+</head>
+<body>
+	<a href="/"><h1>ToDo List</h1></a>
+	<h2>All ToDo containing "{{query}}"</h2>
+	    {% if allTodo|length == 0%}
+        <h4 id="emptyAlert">No ToDos containing {{query}} found.</h4>
+        {% else %}
+    <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">S.No.</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+        {% for i in allTodo %}
+      <tbody>
+        <tr>
+            <th scope="row">{{loop.index}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.desc}}</td>
+            <td>{{i.dateCreated}}</td>
+            <td class="buttons">
+                <a href="/delete/{{i.sno}}">Delete</a>
+                <a href="/update/{{i.sno}}">Update</a>
+            </td>
+        </tr>
+    </tbody>
+        {% endfor %}
+    </table>
+
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/app.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <a href="/"><h1>ToDo List</h1></a>
+        <form action="/search" method="GET" id='search'>
+            <input type="text" name="query" id="query"> <button>Search</button>
+        </form>
+    </div>
+
+    <h2>Add ToDo</h2>
+    <form action="/" method="POST">
+        <label>
+            ToDo Title
+            <input type="text" name="title" id="title">
+        </label>
+        <label>
+            ToDo Description
+            <input type="text" id="desc" name="desc">
+        </label>
+        <button>Submit</button>
+    </form>
+
+    <h2>Current ToDos</h2>
+    
+        {% if allTodo|length == 0%}
+            <h4 id="emptyAlert">Empty Todo List. Add your Todos now!</h4>
+        {% else %}
+    <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">S.No.</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+        {% for i in allTodo %}
+      <tbody>
+        <tr>
+            <th scope="row">{{loop.index}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.desc}}</td>
+            <td>{{i.dateCreated}}</td>
+            <td class="buttons">
+                <a href="/delete/{{i.sno}}">Delete</a>
+                <a href="/update/{{i.sno}}">Update</a>
+            </td>
+        </tr>
+    </tbody>
+        {% endfor %}
+    </table>
+
+    {% endif %}
+    <script src= "{{ url_for('static', filename='JS/app.js') }}"></script>
+</body>
+
+</html>

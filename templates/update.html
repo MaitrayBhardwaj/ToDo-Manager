@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Update the ToDo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/app.css') }}">
+</head>
+<body>
+	<a href="/"><h1>ToDo List</h1></a>
+
+	<h2>Update ToDo</h2>
+
+	<form action="/update/{{todo.sno}}" method="POST">
+		<label>
+			Change title
+			<input type="text" id="title" value="{{todo.title}}" name="title">
+		</label>
+		<label>
+			Change description
+			<input type="text" id="desc" value="{{todo.desc}}" name="desc">
+		</label>
+		<button type="submit">Submit</button>
+	</form>
+</body>
+</html>
